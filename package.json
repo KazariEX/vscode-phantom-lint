@@ -5,7 +5,7 @@
   "type": "module",
   "version": "0.0.0",
   "packageManager": "pnpm@9.14.0",
-  "description": "",
+  "description": "Inlay hints for single quotes and semicolons",
   "author": "KazariEX",
   "license": "MIT",
   "repository": "KazariEX/vscode-phantom-lint",
@@ -14,7 +14,8 @@
   ],
   "main": "./dist/index.cjs",
   "files": [
-    "dist"
+    "LICENSE.md",
+    "dist/*"
   ],
   "engines": {
     "vscode": "^1.95.0"
@@ -29,23 +30,38 @@
         "title": "Toggle",
         "command": "phantom-lint.toggle"
       }
-    ]
+    ],
+    "configuration": {
+      "type": "object",
+      "properties": {
+        "phantom-lint.enabled": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable phantom lint"
+        }
+      }
+    }
   },
   "scripts": {
-    "build": "tsup",
+    "build": "tsup --minify",
     "watch": "tsup --watch",
+    "prepack": "pnpm run build",
+    "prepare": "vscode-ext-gen --output src/generated/meta.ts",
+    "publish": "vsce publish --no-dependencies",
+    "pack": "vsce package --no-dependencies",
+    "release": "bumpp --no-push -c \"release: v%s\"",
     "eslint": "eslint ."
-  },
-  "dependencies": {
-    "reactive-vscode": "^0.2.9",
-    "typescript": "^5.7.2"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^3.11.2",
     "@types/node": "^22.10.1",
     "@types/vscode": "^1.95.0",
     "@zinkawaii/eslint-config": "^0.1.8",
+    "bumpp": "^9.8.1",
     "eslint": "^9.16.0",
-    "tsup": "^8.3.5"
+    "reactive-vscode": "^0.2.9",
+    "tsup": "^8.3.5",
+    "typescript": "^5.7.2",
+    "vscode-ext-gen": "^0.5.0"
   }
 }
