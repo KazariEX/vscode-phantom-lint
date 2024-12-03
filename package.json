@@ -3,7 +3,7 @@
   "name": "phantom-lint",
   "displayName": "Phantom Lint",
   "type": "module",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "packageManager": "pnpm@9.14.0",
   "description": "Inlay hints for single quotes and semicolons",
   "author": "KazariEX",
