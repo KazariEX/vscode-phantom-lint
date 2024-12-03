@@ -9,7 +9,17 @@ The follow features are only for view effects:
 - Convert single quotes to double quotes
 - Complete the semicolon after the statement
 
-## Support Languages
+## Configs
+
+<!-- configs -->
+
+| Key                    | Description         | Type      | Default |
+| ---------------------- | ------------------- | --------- | ------- |
+| `phantom-lint.enabled` | Enable phantom lint | `boolean` | `true`  |
+
+<!-- configs -->
+
+## Supported Languages
 
 - JavaScript
 - TypeScript
